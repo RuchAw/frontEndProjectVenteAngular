@@ -1,0 +1,38 @@
+<div class="card text-center ">
+    <div class="card-header bg-info">
+        Register
+    </div>
+    <div class="card-body">
+        <h2 *ngIf='this.isLogin'>Vous êtes connecté</h2>
+        <div *ngIf='!this.isLogin'>
+            <h3 *ngIf='this.status' class="bg-success">{{this.messageStatus}}</h3>
+            <form #myform="ngForm" (ngSubmit)="onSubmit(myform)" *ngIf='!this.status'>
+                <div class='form-group' style="padding:5px;">
+                    <input class='form-control' type="text" name="nom" placeholder="nom" ngModel>
+                </div>
+                <div class='form-group' style="padding:5px;">
+                    <input class='form-control' type="email" name="email" placeholder="Email" ngModel>
+                </div>
+                <div class='form-group' style="padding:5px;">
+                    <input class='form-control' type="password" name="password" placeholder="Password" ngModel>
+                </div>
+                <div class='form-group' style="padding:5px;">
+                    <select class='form-control' name="idRole" ngModel>
+                        <option disabled selected> Sélectionner un Role</option>
+                        <option *ngFor="let role of listeRoles" [ngValue]="role.id">
+                            {{ role.nom }}
+                        </option>
+                    </select>
+                </div>
+                <div class='form-group' style="padding:5px;">
+                    <input type="file" name="file" class='form-control' (change)="selectFile($event)">
+                </div>
+
+                <div class='form-group' style="padding:5px;">
+                    <input class='form-control btn btn-success  btn-sm' type="submit" value="Register">
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

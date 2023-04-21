@@ -1,0 +1,26 @@
+<div class="card text-center ">
+    <div class="card-header bg-info">
+Détails du role :{{role.nom}}
+    </div>
+    <div class="card-body">
+    <h3 *ngIf = 'this.status==0' class="bg-danger">{{this.messageStatus}}</h3>
+    <h3 *ngIf = 'this.status==1' class="bg-success">{{this.messageStatus}}</h3>
+<table class="table table-striped" *ngIf = 'this.userinfo[0].idRole==1'>
+ <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nom</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+     <td>{{role.id}}</td>
+     <td>{{role.nom}}</td>
+    
+    </tr>
+    </tbody>
+</table>
+<h3 *ngIf = '!this.isLogin' class="bg-success">Only Admin</h3>
+
+</div>
+</div>

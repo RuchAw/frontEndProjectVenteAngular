@@ -1,0 +1,31 @@
+<div class="card text-center ">
+    <div class="card-header bg-info">
+        Login
+    </div>
+    <div class="card-body">
+        <h2 *ngIf='this.isLogin' class="bg-success">Vous êtes connecté</h2>
+        <h3 *ngIf='this.status==0 || this.status==2' class="bg-danger">{{this.messageStatus}}</h3>
+        <div class="card-text" *ngIf='!this.isLogin || this.status==2'>
+            <form #myform="ngForm" (ngSubmit)="onSubmit(myform)">
+                <div class='form-group' style="padding:5px;">
+                    <input class='form-control' type="text" name="email" placeholder="email" ngModel>
+                </div>
+                <div class='form-group' style="padding:5px;">
+                    <input class='form-control' type="password" name="password" placeholder="Password" ngModel>
+                </div>
+                <div class='form-group' style="padding:5px;">
+                    <input class='form-control btn btn-success  btn-sm' type="submit" value="Login">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="card-footer text-muted" *ngIf='this.isLogin'>
+
+        <div class="btn-group" role="group" aria-label="Basic mixed styles example" *ngIf='this.isLogin'>
+            <button type="button" class="btn btn-danger btn-lage" (click)='logout()'>logout</button>
+
+        </div>
+
+
+    </div>
+</div>
